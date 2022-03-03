@@ -10,7 +10,6 @@ private:
     int second;
     void advance();
 public:
-    DayTime();
     DayTime(int, int, int);
     DayTime(const DayTime&);
     DayTime& operator=(const DayTime&);
@@ -41,62 +40,54 @@ public:
     int Span(DayTime);
 };
 
-DayTime::DayTime() {
-    hour = 0;
-    minute = 0;
-    second = 0;
-}
-
-DayTime::DayTime(int hh, int mm, int ss) {
+inline DayTime::DayTime(int hh=0, int mm=0, int ss=0) {
     hour = hh;
     minute = mm;
     second = ss;
     advance();
 }
 
-DayTime::DayTime(const DayTime& T) {
-    hour = T.hour;
-    minute = T.minute;
-    second = T.second;
+inline DayTime::DayTime(const DayTime& T) {
+    *this = T;
 }
 
-DayTime& DayTime::operator=(const DayTime& T) {
+inline DayTime& DayTime::operator=(const DayTime& T) {
     hour = T.hour;
     minute = T.minute;
     second = T.second;
     return *this;
 }
 
-bool DayTime::operator==(const DayTime& T) {
+inline bool DayTime::operator==(const DayTime& T) {
     return (hour == T.hour && minute == T.minute && second == T.second);
 }
 
-bool DayTime::operator!=(const DayTime& T) {
+inline bool DayTime::operator!=(const DayTime& T) {
     return (hour != T.hour || minute != T.minute || second != T.second);
 }
 
-bool DayTime::operator<(const DayTime& T) {
+inline bool DayTime::operator<(const DayTime& T) {
     if (hour < T.hour) return true;
     if (hour == T.hour && minute < T.minute) return true;
     if (hour == T.hour && minute == T.minute && second < T.second) return true;
     return false;
 }
 
-bool DayTime::operator>(const DayTime& T) {
+inline bool DayTime::operator>(const DayTime& T) {
     if (hour > T.hour) return true;
     if (hour == T.hour && minute > T.minute) return true;
     if (hour == T.hour && minute == T.minute && second > T.second) return true;
     return false;
 }
 
-bool DayTime::operator<=(const DayTime& T) {
+inline bool DayTime::operator<=(const DayTime& T) {
     if (hour < T.hour) return true;
     if (hour == T.hour && minute < T.minute) return true;
     if (hour == T.hour && minute == T.minute && second <= T.second) return true;
     return false;
 }
 
-bool DayTime::operator>=(const DayTime& T) {
+inline bool DayTime::operator>=(const DayTime& T) {
     if (hour > T.hour) return true;
     if (hour == T.hour && minute > T.minute) return true;
     if (hour == T.hour && minute == T.minute && second >= T.second) return true;
@@ -118,7 +109,7 @@ void DayTime::setTime(const char* time) {
 
 void DayTime::inputTime() {
     printf("Please input time(hh:mm:ss): ");
-    char time[20];
+    char time[10];
     scanf("%s", time);
     setTime(time);
 }
@@ -133,7 +124,7 @@ char* DayTime::getTime_s() {
     return time;
 }
 
-void DayTime::advance() {
+inline void DayTime::advance() {
     if (second >= 60 || second < 0) {
         minute += second / 60;
         second %= 60;
@@ -160,33 +151,33 @@ void DayTime::advance() {
     }
 }
 
-int DayTime::getHour() {
+inline int DayTime::getHour() {
     return hour;
 }
 
-int DayTime::getMinute() {
+inline int DayTime::getMinute() {
     return minute;
 }
 
-int DayTime::getSecond() {
+inline int DayTime::getSecond() {
     return second;
 }
 
-int DayTime::getSeconds() {
+inline int DayTime::getSeconds() {
     return hour * 3600 + minute * 60 + second;
 }
 
-void DayTime::setHour(int hh) {
+inline void DayTime::setHour(int hh) {
     hour = hh;
     advance();
 }
 
-void DayTime::setMinute(int mm) {
+inline void DayTime::setMinute(int mm) {
     minute = mm;
     advance();
 }
 
-void DayTime::setSecond(int ss) {
+inline void DayTime::setSecond(int ss) {
     second = ss;
     advance();
 }
@@ -209,15 +200,15 @@ DayTime DayTime::nextHours(int hh) {
     return T;
 }
 
-DayTime DayTime::nextSecond() {
+inline DayTime DayTime::nextSecond() {
     return nextSeconds(1);
 }
 
-DayTime DayTime::nextMinute() {
+inline DayTime DayTime::nextMinute() {
     return nextMinutes(1);
 }
 
-DayTime DayTime::nextHour() {
+inline DayTime DayTime::nextHour() {
     return nextHours(1);
 }
 
