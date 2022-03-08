@@ -25,7 +25,7 @@ char* stopword[ ] = { "you","he","she","they","it",
 
 void Add(char* w, Word* head, int len) {
     if (len <= 1) return;
-    for (int i = 0; i < 46; i++)
+    for (int i = 0; i < sizeof(stopword) / sizeof(char*); i++)
         if (strcmp(w, stopword[i]) == 0)
             return;
     Word* current = head;
