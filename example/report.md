@@ -4,17 +4,29 @@
 
 ## 主要数据结构和变量
 
+- 
+
 ## 程序主要流程
+
+1. 
 
 ## 程序主要函数功能
 
+- 
+
 ## 已实现功能
 
-## 运行结果和分析
+全部题目要求功能
 
 ## 编译与运行信息
 
 ### 编译信息
+
+```bash
+/usr/bin/gcc -std=c17 -fdiagnostics-color=always -Wfatal-errors -Wall -Wextra -g 1.c -o 1 -lm
+```
+
+### 测试命令行
 
 ```bash
 

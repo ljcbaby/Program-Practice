@@ -5,8 +5,8 @@
 ## 主要数据结构和变量
 
 - 链表（节点 `Node`）
-- 加入数字 `void Add(Node*, int)`
-- 链上插入排序 `void Sort(Node*)`
+  - 存储数据 `data`
+  - 指针 `next`
 
 ## 程序主要流程
 
@@ -39,7 +39,7 @@
 /usr/bin/gcc -std=c17 -fdiagnostics-color=always -Wfatal-errors -Wall -Wextra -g 1.c -o 1 -lm
 ```
 
-### 测试数据1
+### 测试数据
 
 #### 输入
 

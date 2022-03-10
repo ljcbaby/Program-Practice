@@ -23,10 +23,11 @@ char* stopword[ ] = { "you","he","she","they","it",
                      "yourselves","themselves" };
 
 
-void Add(char* w, Word* head, int len) {
+void Add(Word* head, char* w, int len) {
     if (len <= 1) return;
-    for (int i = 0; i < sizeof(stopword) / sizeof(char*); i++)
-        if (strcmp(w, stopword[i]) == 0)
+    char* p = *stopword;
+    for (long unsigned int i = 0; i < sizeof(stopword) / sizeof(char*); i++, p++)
+        if (strcmp(w, p) == 0)
             return;
     Word* current = head;
     while (current->next != NULL) {
@@ -72,7 +73,7 @@ void Sort(Word* head) {
     }
 }
 
-void Print(Word* node, FILE* out, int maxlen, int sum) {
+void Print(FILE* out, Word* node, int maxlen, int sum) {
     char ss[30];
     sprintf(ss, "%%5d %%%ds %%4d %%5.2f%%%%\n", maxlen);
     int i = 0;
@@ -129,13 +130,13 @@ int main(int argc, char* argv[ ]) {
                 ch = tolower(fgetc(in));
             }
             word[i] = '\0';
-            Add(word, head, i);
+            Add(head, word, i);
             maxlen = i > maxlen ? i : maxlen;
             cnt++;
         }
     }
     Sort(head);
-    Print(head->next, out, maxlen, cnt);
+    Print(out, head->next, maxlen, cnt);
     DelTable(head);
     free(word);
     fclose(in);
