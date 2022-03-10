@@ -1,3 +1,71 @@
+# 第1章《正整数个数统计》实验报告
+
+21051117 卢俊成
+
+## 主要数据结构和变量
+
+- 链表（节点`Node`）
+- 加入数字`void Add(Node*, int)`
+- 链上插入排序`void Sort(Node*)`
+
+## 程序主要流程
+
+1. 初始化链表
+2. 读入数据直到输入为`0`
+3. 链上插入排序
+4. 打印链表内容
+5. 释放链表
+
+## 程序主要函数功能
+
+- `void Add(Node*, int)`
+  顺序查找链表中的数字，若不存在则插入，若存在则次数加1
+
+- void Sort(Node*)
+  链上插入排序
+
+- void Print(Node*)
+  打印链表内容
+
+- void DelTable(Node*)
+  释放链表空间
+
+## 已实现功能
+
+全部题目要求
+
+## 编译与运行信息
+
+### 编译信息
+
+```bash
+/usr/bin/gcc -std=c17 -fdiagnostics-color=always -Wfatal-errors -Wall -Wextra -g 1.c -o 1 -lm
+```
+
+### 测试数据1
+
+#### 输入
+
+```text
+1 1 2 2 2 3 4 5 6 3 5 4 0
+
+```
+
+#### 输出
+
+```text
+2:3
+1:2
+3:2
+4:2
+5:2
+6:1
+
+```
+
+## 源代码
+
+```c
 // Work on stdc17
 #include <stdio.h>
 #include <stdlib.h>
@@ -88,3 +156,5 @@ int main() {
 #endif
     return 0;
 }
+
+```
