@@ -31,6 +31,7 @@ void Add(Node* head, int number) {
 
 void Sort(Node* head) {
     Node* current = head->next;
+    if (current == NULL) return;
     Node* tmp;
     while (current->next != NULL) {
         tmp = head;

@@ -4,9 +4,9 @@
 
 ## 主要数据结构和变量
 
-- 链表（节点`Node`）
-- 加入数字`void Add(Node*, int)`
-- 链上插入排序`void Sort(Node*)`
+- 链表（节点 `Node`）
+- 加入数字 `void Add(Node*, int)`
+- 链上插入排序 `void Sort(Node*)`
 
 ## 程序主要流程
 
@@ -18,16 +18,13 @@
 
 ## 程序主要函数功能
 
-- `void Add(Node*, int)`
+- `void Add(Node*, int)`  
   顺序查找链表中的数字，若不存在则插入，若存在则次数加1
-
-- void Sort(Node*)
+- `void Sort(Node*)`  
   链上插入排序
-
-- void Print(Node*)
+- `void Print(Node*)`  
   打印链表内容
-
-- void DelTable(Node*)
+- `void DelTable(Node*)`  
   释放链表空间
 
 ## 已实现功能
@@ -48,7 +45,6 @@
 
 ```text
 1 1 2 2 2 3 4 5 6 3 5 4 0
-
 ```
 
 #### 输出
@@ -60,7 +56,6 @@
 4:2
 5:2
 6:1
-
 ```
 
 ## 源代码
@@ -99,6 +94,7 @@ void Add(Node* head, int number) {
 
 void Sort(Node* head) {
     Node* current = head->next;
+    if (current == NULL) return;
     Node* tmp;
     while (current->next != NULL) {
         tmp = head;
@@ -156,5 +152,4 @@ int main() {
 #endif
     return 0;
 }
-
 ```
