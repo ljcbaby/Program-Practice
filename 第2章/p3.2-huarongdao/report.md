@@ -1,4 +1,4 @@
-# 第3章《数字华容道》实验报告
+# 第2章《数字华容道》实验报告
 
 21051117 卢俊成
 
@@ -23,8 +23,8 @@
 - 队列相关函数
 - `int is_valid(unsigned char* a, unsigned char* n)` 判断是否有解
 - `void print_step(QNode* n)` 打印路径
-- `unsigned long long map2int(const unsigned char* a, const unsigned char* n)`
-  `void int2map(register unsigned long long a, unsigned char* b, const unsigned char* n)`
+- `unsigned long long map2int(const unsigned char* a, const unsigned char* n)`  
+  `void int2map(register unsigned long long a, unsigned char* b, const unsigned char* n)`  
   存储的图面与数组转换
 
 ## 已实现功能
