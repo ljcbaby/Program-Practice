@@ -50,8 +50,8 @@
 
 ## 测试环境信息
 
-CPU: Intel Xeon(Skylake) Platinum 8163 / Intel Xeon(Cascade Lake) Platinum 8269CY 2.5 GHz/2.7 GHz
-阿里云 ECS 华东1(杭州) 可用区G ecs.c5.large 2 vCPU 4 GiB
+CPU: Intel Xeon(Skylake) Platinum 8163 / Intel Xeon(Cascade Lake) Platinum 8269CY 2.5 GHz/2.7 GHz  
+阿里云 ECS 华东1(杭州) 可用区G ecs.c5.large 2 vCPU 4 GiB  
 Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-107-generic x86_64)
 
 ```bash
@@ -105,7 +105,7 @@ file locks                      (-x) unlimited
 
 ## 编译信息
 
-由于存在 STL 的使用，使用了 O2 优化
+由于存在 STL 的使用，使用了 O2 优化  
 ~~吸氧~~
 
 ```bash
@@ -241,7 +241,27 @@ Data	Bubble	Select	Insert	std::sort	std::stable_sort	Quick	Merge	Heap	HeapSTL	On
 1000000-Narrowband	1259276576	747080277	142864940	69494	89275	121230	102020	153885	157257	144524	278553	305313	162804
 ```
 
-## 图像及分析
+## 整理后的数据及分析
+
+![随机](1.png)
+
+随机数据（重复三次，平均）：基本可以看出 `std::sort` 和 `std::stable_sort` 的表现相对较好。 `BubbleSort`冒泡排序 性能最差。
+
+其中 `BubbleSort`冒泡排序、`SelectSort`选择排序 和 `InsertSort`插入排序 基本为同阶，后续的时间增长基本来自他们。  
+（在 1 000 000 的数据规模下，完成一次冒泡就需要20分钟了）
+
+![逆序](2.png)
+
+逆序数据中，`InsertSort`插入排序 耗时明显增加，其他有部分算法耗时稍有减少。
+
+![有序](3.png)
+![基本有序](4.png)
+
+在 有序 与 基本有序 两种数据中，`BubbleSort`冒泡排序 和 `InsertSort`插入排序 有明显的时间减少。这种情况对几乎所有的算法都是达到最优状态。
+
+![类型5](5.png)
+
+重复数据较多，`BucketSort`桶排序 性能有所提升。
 
 
 
