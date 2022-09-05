@@ -23,7 +23,7 @@
 ### 编译信息
 
 ```bash
-/usr/bin/gcc -std=c17 -fdiagnostics-color=always -Wfatal-errors -Wall -Wextra -g 1.c -o 1 -lm
+/usr/bin/gcc -std=c2x -fdiagnostics-color=always -Wfatal-errors -Wall -Wextra -g 1.c -o 1 -lm
 ```
 
 ### 测试命令行
